@@ -5,15 +5,17 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\Category;
+
 
 class BlogController extends Controller
 {
     public function index(){
 
 
+$data=Category::all();
+        return view('backend.blogs.create',compact('data'));
 
-        return view('backend.blogs.create');
-       
 
 }
 public function store(Request $request){
@@ -27,6 +29,7 @@ public function store(Request $request){
     $data=new Blog();
     $data->title=$request->title;
    $data->description=$request->description;
+   $data->category_id=$request->category_id;
    if($request->hasFile('image'))
         {
             $file=$request->image;

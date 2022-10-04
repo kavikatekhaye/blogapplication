@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
 </head>
 <body>
 
@@ -23,7 +24,7 @@
 @endif
 
 
-  <form action="{{url('store')}}"method="POST"enctype="multipart/form-data">
+  <form action="{{url('blogs/store')}}"method="POST"enctype="multipart/form-data">
     @csrf
     <div class="form-group">
       <label for="title">Title:</label>
@@ -32,15 +33,30 @@
     <div class="form-group">
 
       <label for="description">Description:</label>
-      <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Write something....." value="{{old('description')}}">{!!old('description')!!}</textarea> <br>
+      <textarea class="form-control" name="description" id="description" cols="30"placeholder="Write something....." value="{{old('description')}}">{!!old('description')!!}</textarea> <br>
 
      <label for="image">image:</label>
       <input type="file" class="form-control" id="image" placeholder="image" name="image"><br>
 
+ <select name="category_id"id="cars">
+
+@foreach($data as $d)
+    <option value="{{$d->id}}">{{$d->title}}</option>
+    @endforeach
+ </select>
+
 <button type="Submit" class="btn btn-success">Submit</button>
 
+ </form>
+</div>
 
-
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#description' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 
 </body>
 </html>

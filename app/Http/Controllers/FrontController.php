@@ -9,7 +9,7 @@ use App\Models\Category;
 class FrontController extends Controller
 {
 public function index(){
-    $data=Blog::all();
+    $data=Blog::paginate(3);
     $latest_blog=Blog::latest()->first();
     $categories = Category::all();
 
@@ -19,8 +19,9 @@ public function index(){
 }
 
 public function detail($id){
-    $data=Blog::find($id);
+    $data=Blog::with('category')->find($id);
     $categories = Category::all();
+    // dd($data);
     return view('frontend.detail',compact('data','categories'));
 }
 

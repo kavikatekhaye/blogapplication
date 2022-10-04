@@ -24,7 +24,7 @@ Route::get('/',[FrontController::class,'index']);
 
 Route::get('admin/blogs/create',[BlogController::class,'index'])->name('admin.blogs.create');
 
-Route::post('store',[BlogController::class,'store']);
+Route::post('blogs/store',[BlogController::class,'store']);
 
 Route::get('admin/blogs/table',[BlogController::class,'table'])->name('admin.blogs.table');
 

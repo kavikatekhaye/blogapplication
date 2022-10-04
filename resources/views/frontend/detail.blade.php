@@ -40,14 +40,13 @@
                             <!-- Post meta content-->
                             <div class="text-muted fst-italic mb-2">Posted on {{$data->created_at}}</div>
                             <!-- Post categories-->
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{$data->category->title}}</a>
                         </header>
                         <!-- Preview image figure-->
                         <figure class="mb-4"><img class="img-fluid rounded" src="{{asset('uploads/'.$data->image)}}" alt="..." width="900px" height="400px"/></figure>
                         <!-- Post content-->
                         <section class="mb-5">
-                            <p class="fs-5 mb-4">{{$data->description}}</p>
+                            <p class="fs-5 mb-4">{!!$data->description!!}</p>
                     </article>
                     <!-- Comments section-->
                     <section class="mb-5">

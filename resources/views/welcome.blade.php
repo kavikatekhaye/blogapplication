@@ -47,7 +47,8 @@
                         <div class="card-body">
                             <div class="small text-muted">{{$latest_blog->created_at}}</div>
                             <h2 class="card-title">{{$latest_blog->title}}</h2>
-                            <p class="card-text">{{$latest_blog->description}}</p>
+                            <p class="card-text">{!!Str::words($latest_blog->description,30,'....') !!}</p>
+
                             <a class="btn btn-primary" href="{{route('detail',$latest_blog->id)}}">Read more →</a>
 
                         </div>
@@ -63,9 +64,12 @@
                                 <div class="card-body">
                                     <div class="small text-muted">January 1, 2022</div>
                                     <h2 class="card-title h4">{{$d->title}}</h2>
-                                    <p class="card-text">{{$d->description}}</p>
-                                    <a class="btn btn-primary" href="{{route('detail',$d->id)}}">Read more →</a>
+                                    <p class="card-text">{!! Str::words($d->description,30,'....')!!}</p>
+                                    {{-- <p class="card-text">{!!$d->description!!}</p> --}}
+                                    <a class="btn btn-primary" href="{{route('detail',$d->id)}}">Read more →
+                                        </a>
                                 </div>
+
                             </div>
                             <!-- Blog post-->
                             {{-- <div class="card mb-4">
@@ -81,9 +85,11 @@
                         @endforeach
 
                     </div>
+                    {{$data->links()}}
 
                     <!-- Pagination-->
-                    <nav aria-label="Pagination">
+                    {{-- <nav aria-label="Pagination">
+
                         <hr class="my-0" />
                         <ul class="pagination justify-content-center my-4">
                             <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Newer</a></li>
@@ -94,7 +100,7 @@
                             <li class="page-item"><a class="page-link" href="#!">15</a></li>
                             <li class="page-item"><a class="page-link" href="#!">Older</a></li>
                         </ul>
-                    </nav>
+                    </nav> --}}
                 </div>
                 <!-- Side widgets-->
                 <div class="col-lg-4">
@@ -114,8 +120,6 @@
                         <div class="card-body">
                             <div class="row">
                                 @foreach ($categories as $c)
-
-
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
                                         <li><a href="#!">{{$c->title}}</a></li>
