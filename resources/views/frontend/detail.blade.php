@@ -46,10 +46,10 @@
                         <figure class="mb-4"><img class="img-fluid rounded" src="{{asset('uploads/'.$data->image)}}" alt="..." width="900px" height="400px"/></figure>
                         <!-- Post content-->
                         <section class="mb-5">
-                            <p class="fs-5 mb-4">{!!$data->description!!}</p>
+                            <p class="fs-5 mb-4">{!!($data->description)!!}</p>
                     </article>
                     <!-- Comments section-->
-                    <section class="mb-5">
+                    {{-- <section class="mb-5">
                         <div class="card bg-light">
                             <div class="card-body">
                                 <!-- Comment form-->
@@ -89,12 +89,12 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section> --}}
                 </div>
                 <!-- Side widgets-->
                 <div class="col-lg-4">
                     <!-- Search widget-->
-                    <div class="card mb-4">
+                    {{-- <div class="card mb-4">
                         <div class="card-header">Search</div>
                         <div class="card-body">
                             <div class="input-group">
@@ -102,7 +102,7 @@
                                 <button class="btn btn-primary" id="button-search" type="button">Go!</button>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- Categories widget-->
                     <div class="card mb-4">
                         <div class="card-header">Categories</div>
@@ -128,11 +128,11 @@
                         </div>
                     </div>
                     <!-- Side widget-->
-                    <div class="card mb-4">
+                    {{-- <div class="card mb-4">
                         <div class="card-header">Side Widget</div>
                         <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
         <!-- Footer-->

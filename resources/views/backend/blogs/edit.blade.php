@@ -38,7 +38,9 @@
       <textarea class="form-control" name="description" id="description" cols="30" rows="10" placeholder="Write something....." value="{{$data->description}}">{!!$data->description!!}</textarea> <br>
 
      <label for="image">image:</label>
-      <input type="file" class="form-control" id="image" placeholder="image" name="image" value="{{$data->image}}"> <br>
+      <input type="file" class="form-control" id="image" placeholder="image" name="image" value="{{$data->image}}"><br>
+
+      <select name="Category_id" id="cars"><option value="{{$data->category_id}}">{{$data->category->title}}</option></select>
 
 <button type="Update" class="btn btn-success">Update</button>
 

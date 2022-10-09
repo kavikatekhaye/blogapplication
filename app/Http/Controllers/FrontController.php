@@ -9,7 +9,7 @@ use App\Models\Category;
 class FrontController extends Controller
 {
 public function index(){
-    $data=Blog::paginate(3);
+    $data=Blog::paginate(4);
     $latest_blog=Blog::latest()->first();
     $categories = Category::all();
 
