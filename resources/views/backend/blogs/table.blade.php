@@ -42,7 +42,7 @@
         <td>{!!$d->description!!}</td>
         <td><img src="{{asset('uploads/'.$d->image)}}"width="50px"height="50px" alt=""></td>
         <td><a href="{{route('admin.blogs.edit',$d->id)}}"><button type="Edit" class="btn btn-success">edit</button>
-           <td> <a href="{{route('admin.blogs.delete',$d->id)}}"><button type="delete" class="btn btn-danger">delete</button>
+           <a href="{{route('admin.blogs.delete',$d->id)}}"><button type="delete" class="btn btn-danger">delete</button> </td>
 
 
 

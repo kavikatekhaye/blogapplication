@@ -8,25 +8,21 @@ use App\Models\Category;
 
 class FrontController extends Controller
 {
-public function index(){
-    $data=Blog::paginate(4);
-    $latest_blog=Blog::latest()->first();
-    $categories = Category::all();
+    public function index()
+    {
+        $data = Blog::paginate(4);
+        $latest_blog = Blog::latest()->first();
+        $categories = Category::all();
 
 
-    return view('welcome',compact('data','latest_blog','categories'));
+        return view('welcome', compact('data', 'latest_blog', 'categories'));
+    }
 
+    public function detail($id)
+    {
+        $data = Blog::with('category')->find($id);
+        $categories = Category::all();
+        // dd($data);
+        return view('frontend.detail', compact('data', 'categories'));
+    }
 }
-
-public function detail($id){
-    $data=Blog::with('category')->find($id);
-    $categories = Category::all();
-    // dd($data);
-    return view('frontend.detail',compact('data','categories'));
-}
-
-
-}
-
-
-
